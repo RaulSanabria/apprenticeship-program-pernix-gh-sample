@@ -24,6 +24,35 @@ Aca el code smell es el "Lista larga de parametros" aca hay demasiados parametro
         this.email = email;
     }
 
+Refactored seria:
+
+public class ContactInfo {
+    private String name;
+    private String address;
+    private String phone;
+    private String email;
+
+    public ContactInfo(String name, String address, String phone, String email) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.address = address;
+        this.email = email;
+    }
+
+    public String getName() { return name; }
+    public String getAddress() { return address; }
+    public String getPhone() { return phone; }
+    public String getEmail() { return email; }
+}
+
+public void updateInfo(ContactInfo contactInfo) {
+    this.name = contactInfo.getName();
+    this.address = contactInfo.getAddress();
+    this.phone = contactInfo.getPhone();
+    this.email = contactInfo.getEmail();
+}
+
     // Method to calculate discount based on loyalty points
     public double calculateDiscount(int loyaltyPoints, double accountBalance) {
         double discount = 0.0;
@@ -56,6 +85,14 @@ Aca el code smell es el "Codigo duplicado" debido a que ambas funciones imprimen
         }
     }
 
+Aca la function refactored seria:
+
+public void printOrdersAndCoupons(List<String> elements) {
+	for (String element : elements) {
+		System.out.println(" Orders and coupons: " + element);
+	}
+}
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Aca el code smell es el "Codigo muerto" esto ya no hace nada esta deprecated
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -65,4 +102,12 @@ Aca el code smell es el "Codigo muerto" esto ya no hace nada esta deprecated
         // This method is no longer used
     }
 }
+
+La function refactored seria:
+    // Method to apply coupons
+    public void applyCoupons(List<String> coupons) {
+        for (String coupon : coupons) {
+            System.out.println("Applying coupon: " + coupon);
+        }
+    }
 
