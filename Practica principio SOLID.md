@@ -1,6 +1,6 @@
-Practica principio SOLID
+## Practica principio SOLID
 
-class Order
+```class Order
   def initialize(items)
     @items = items
   end
@@ -33,12 +33,12 @@ class Item
     @price = price
   end
 end
+```
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-++Refactoring++
+## Refactoring
 
-class Order
+```class Order
   attr_reader :items
   
   def initialize(items)
@@ -84,3 +84,5 @@ order = Order.new([item1, item2])
 
 OrderPrinter.print(order)
 OrderEmail.send_confirmation(order, "cliente@email.com")
+
+```
